@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script type="text/javascript">
+/* window.onload=function(){
+	var btn1=document.getElementById('btn1');
+	btn1.onclick=function(){
+		alert('1');
+	}
+	var btn1=document.getElementsByTagName("button");
+	btns[1].onclick=function(){
+		alert('2');
+	}
+} */
+
+</script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+<!-- <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script> -->
+<script type="text/javascript">
+$(function(){
+	$("#btn1").click(function(){
+		alert("First");
+	})
+})
+</script>
+</head>
+<body>
+<button id="btn1">btn1</button>
+<button id="btn2">btn2</button>
+
+</body>
+</html>

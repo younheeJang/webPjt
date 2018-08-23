@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.BookMapper">
+
+	<insert id="my_insert" parameterType="BookVO"
+	useGeneratedKeys="true" keyProperty="bookNum">
+		insert into book_tb(title,
+		writer, price)
+		values(#{title}, #{writer}, #{price})
+	</insert>
+
+	<select id="my_select_one" parameterType="Integer"
+		resultMap="rrrr">
+		select * from book_tb
+		where book_num=#{book_num}
+	</select>
+
+	<select id="my_select_all" resultMap="rrrr">
+		select * from book_tb
+	</select>
+
+	<resultMap type="BookVO" id="rrrr">
+		<result column="BOOK_NUM" property="bookNum" />
+		<result column="TITLE" property="title" />
+		<result column="WRITER" property="writer" />
+		<result column="PRICE" property="price" />
+	</resultMap>
+</mapper> 

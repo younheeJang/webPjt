@@ -1,0 +1,9 @@
+ <display-name>JspExam</display-name>
+  <servlet>
+    <servlet-name>XYPlotServlet</servlet-name>
+    <servlet-class>chart.XYPlotServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>XYPlotServlet</servlet-name>
+    <url-pattern>/XYPlot</url-pattern>
+  </servlet-mapping>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.EmpMapper">
+
+	<insert id="mapper_insert" parameterType="EmpVO">
+		insert into emp(eNum, eName, ePhone, eMail, eDepartment, eJob)
+		values(#{eNum}, #{eName}, #{ePhone}, #{eMail}, #{eDepartment},#{eJob})
+	</insert>
+
+	<select id="mapper_select_one" resultMap="result">
+	select * from emp where eNum=#{eNum}
+	</select>
+
+	<select id="mapper_select_all" resultMap="result">
+	select * from emp
+	</select>
+
+	<update id="mapper_update">
+	update emp set eName=#{eName}, ePhone=#{ePhone}, 
+	eMail=#{eMail}, eDepartment=#{eDepartment}, eJob=#{eJob} where eNum=#{eNum}
+	</update>
+
+	<delete id="mapper_delete">
+	delete from emp where eNum=#{eNum}
+	</delete>
+
+	<resultMap type="EmpVO" id="result">
+		<result column="eNum" property="eNum" />
+		<result column="eName" property="eName" />
+		<result column="ePhone" property="ePhone" />
+		<result column="eMail" property="eMail" />
+		<result column="eDepartment" property="eDepartment" />
+		<result column="eJob" property="eJob" />
+	</resultMap>
+
+</mapper>

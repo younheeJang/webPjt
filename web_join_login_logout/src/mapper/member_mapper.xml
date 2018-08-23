@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.MemberMapper">
+<insert id="mapper_insertMem" parameterType="vo.MemberVO">
+insert into member_tb(member_id, member_pw, phone, email) 
+values(#{memberId}, #{memberPw}, #{phone}, #{email})
+</insert>
+<update id="mapper_updateMem" parameterType="vo.MemberVO">
+update member_tb set member_id=#{memberId}, member_pw=#{memberPw}, 
+phone=#{phone}, email=#{email}
+</update>
+<select id="mapper_selectMem" parameterType="String" resultMap="result">
+select member_id, member_pw, phone, email from member_tb
+where member_id=#{memberId}
+</select>
+<resultMap type="vo.MemberVO" id="result">
+<result column="member_id" property="memberId"/>
+<result column="member_pw" property="memberPw"/>
+<result column="phone" property="phone"/>
+<result column="email" property="email"/>
+</resultMap>
+</mapper>

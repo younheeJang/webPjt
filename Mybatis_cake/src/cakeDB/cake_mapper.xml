@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cakeDB.cakeMapper">
+
+	<insert id="mapper_insert" parameterType="cakeVO">
+		insert into cake(name,
+		stock, price, exDate)
+		values(#{name}, #{stock}, #{price}, #{exDate})
+	</insert>
+
+	<select id="mapper_select_one" resultMap="result">
+		select * from cake
+		where pNum=#{pNum}
+	</select>
+
+	<select id="mapper_select_all" resultMap="result">
+		select * from cake
+	</select>
+
+	<delete id="mapper_delete">
+		delete from cake where pNum=#{pNum}
+	</delete>
+	
+	<update id="mapper_update" parameterType="cakeVO">
+	update cake set name=#{name}, stock=#{stock},
+	price=#{price}, exDate=#{exDate} where pNum=#{pNum}
+	
+	
+	</update>
+	<resultMap type="cakeVO" id="result">
+		<result column="pNum" property="pNum" />
+		<result column="name" property="name" />
+		<result column="stock" property="stock" />
+		<result column="price" property="price" />
+		<result column="exDate" property="exDate" />
+	</resultMap>
+
+</mapper>

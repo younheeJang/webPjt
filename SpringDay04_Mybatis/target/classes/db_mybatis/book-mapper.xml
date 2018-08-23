@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jyh">
+
+	<insert id="my_insert" parameterType="BookVO">
+		insert into book_tb(title, writer, price)
+		values(#{title}, #{writer}, #{price})
+	</insert>
+
+	<select id="my_select_one" resultType="BookVO">
+		select * from book_tb
+		where book_num=#{book_num}
+	</select>
+
+	<select id="my_select_all" resultType="BookVO">
+		select * from book_tb
+	</select>
+
+</mapper> 

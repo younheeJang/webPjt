@@ -1,0 +1,9 @@
+  <display-name>JspExam</display-name>
+  <servlet>
+    <servlet-name>PieChartServlet</servlet-name>
+    <servlet-class>chart.PieChartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PieChartServlet</servlet-name>
+    <url-pattern>/PieChart</url-pattern>
+  </servlet-mapping>

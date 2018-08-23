@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	var MaxW = 500;
+	var MaxH = 500;
+	var MinW = 100;
+	var MinH = 100;
+	var flag = +1;
+
+	function autoPictureMove() {
+		var imgW = $('img').attr('width');
+		var imgH = $('img').attr('height');
+		if (imgW >= MaxW || imgH >= MaxH) {
+			flag = -1;
+		} else if (imgW <= MinW || imgH <= MinH) {
+			flag = +1;
+		}
+		$('img').attr('width', Number(imgW) + (flag * 10));
+		$('img').attr('height', Number(imgH) + (flag * 10));
+	}
+
+	$(function() {
+		$('#auto').click(function() {
+
+			setInterval(autoPictureMove, 10);
+
+		})
+
+		$('#stop').click(function() {
+			for (var i = 1; i < 99999; i++) {
+				clearInterval(i);
+			}
+
+		})
+	})
+</script>
+</head>
+<body>
+	<button id="auto">auto</button>
+	<button id="stop">stop</button>
+	<br>
+	<img src="img/thYTX5SJCC.jpg" width="300" height="300">
+
+</body>
+</html>

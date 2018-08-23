@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.HairSalonMapper">
+
+	<insert id="mapper_insert" parameterType="HairVO">
+		insert into
+		hairSalon(serviceNum, service, price, discount, serviceManager,
+		member, memberNum)
+		values(#{serviceNum}, #{service}, #{price},
+		#{discount}, #{serviceManager}, #{member}, #{memberNum})
+	</insert>
+
+	<select id="mapper_select_one" resultMap="result">
+		select * from hairSalon
+		where serviceNum=#{serviceNum}
+	</select>
+
+	<select id="mapper_select_all" resultMap="result">
+		select * from hairSalon
+	</select>
+
+	<update id="mapper_update">
+		update hairSalon set service=#{service}, price=#{price}, discount=#{discount},
+		serviceManager=#{serviceManager}, member=#{member},
+		memberNum=#{memberNum} where serviceNum=#{serviceNum}
+	</update>
+
+	<delete id="mapper_delete">
+
+		delete from hairSalon where serviceNum=#{serviceNum}
+
+	</delete>
+
+
+	<resultMap type="HairVO" id="result">
+		<result column="serviceNum" property="serviceNum" />
+		<result column="service" property="service" />
+		<result column="price" property="price" />
+		<result column="discount" property="discount" />
+		<result column="serviceManager" property="serviceManager" />
+		<result column="member" property="member" />
+		<result column="memberNum" property="memberNum" />
+
+
+	</resultMap>
+</mapper>

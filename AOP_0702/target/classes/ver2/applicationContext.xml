@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+<bean id="rabbit" class="ver2.Rabbit" />
+<bean id="turtle" class="ver2.Turtle" />
+<bean id="myAspect" class="ver2.MyAspect" />
+
+<aop:config>
+<aop:aspect ref="myAspect">
+<aop:pointcut expression="execution(* start*())" id="myPoint" />
+<aop:before method="beforeRun" pointcut-ref="myPoint"/>
+<aop:after-returning method="afterReturning" pointcut-ref="myPoint"/>
+<aop:after-throwing method="afterThrowning" pointcut-ref="myPoint"/>
+<aop:after method="afterRun" pointcut-ref="myPoint"/>
+</aop:aspect>
+</aop:config>
+
+</beans>

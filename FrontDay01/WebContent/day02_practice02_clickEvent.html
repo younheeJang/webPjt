@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#button').click(function(){
+			if($('input[name=pass]').val()==$('input[name=pass2]').val()){
+				alert('same');
+			}else{
+				alert('not same');
+			}
+		})
+		
+
+		$('#button2').click(function(){
+			var result = "hobby:";
+			var checkBoxList =$(':checkbox:checked');
+			for(var i=0; i<checkBoxList.length; i++){
+				result += checkBoxList[i].value;
+			}
+			
+			var radioBox = $(':radio:checked');
+			result += "<br>gender:"+radioBox[0].value;
+			
+			var target = document.getElementById('div')
+			target.innerHTML = result;
+			$('#div').html(result);
+			
+		})		
+	
+	
+	
+	})
+</script>
+</head>
+<body>
+	<div align="center">
+		<h1>CLICK EVENT</h1>
+		<table border="1">
+			<tr>
+				<td>pass</td>
+				<td><input type="password" name="pass">
+				</td>
+			</tr>
+			<tr>
+				<td>pass2</td>
+				<td><input type="password" name="pass2">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><button id="button">submit</button>
+				</td>
+			</tr>
+		</table>
+		
+		
+		<h1>CLICK EVENT2</h1>
+		<table border="1">
+		
+		<tr>
+		<td>hobby:</td>
+		<td><input type="checkbox" value="hobby1" name="hobby1">hobby1
+		<input type="checkbox" value="hobby2" name="hobby2">hobby2
+		<input type="checkbox" value="hobby3" name="hobby3">hobby3
+		</td>
+		</tr>
+		
+		<tr>
+		<td>gender:</td>
+		<td><input type="radio" value="man" name="radio">man
+		<input type="radio" value="woman" name="radio">woman
+		</td>
+		</tr>
+		
+		<tr>
+		<td><button id="button2">submit</button></td>
+		</tr>
+		</table>
+	
+		<div id="div"></div>
+	</div>
+</body>
+</html>
